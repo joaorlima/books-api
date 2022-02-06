@@ -24,6 +24,7 @@ $router->group(['prefix' => 'api'], function () use ($router): void {
 		$router->get('{id}', 'BookController@show');
 		$router->put('{id}', 'BookController@update');
 		$router->delete('{id}', 'BookController@destroy');
+		$router->get('{book_id}/review', 'BookReviewController@getPerBook');
 	});
 	$router->group(['prefix' => 'review'], function () use ($router): void {
 		$router->post('', 'BookReviewController@store');

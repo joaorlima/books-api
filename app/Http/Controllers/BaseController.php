@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class BaseController {
 
 	protected string $class;
 
-	public function index(): Collection {
-		return $this->class::all();
+	public function index(Request $request): LengthAwarePaginator {
+		return $this->class::paginate($request->per_page);
 	}
 
 	public function store(Request $request): JsonResponse {
-		$book = $this->class::create($request->all());
+		$resource = $this->class::create($request->all());
 
-		return response()->json($book, Response::HTTP_CREATED);
+		return response()->json($resource, Response::HTTP_CREATED);
 	}
 
 	public function show(int $id): JsonResponse {
