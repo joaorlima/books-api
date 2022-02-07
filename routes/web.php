@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router): void {
+$router->group(['prefix' => 'api', 'middleware' => 'self_auth'], function () use ($router): void {
 	$router->group(['prefix' => 'book'], function () use ($router): void {
 		$router->get('', 'BookController@index');
 		$router->post('', 'BookController@store');
