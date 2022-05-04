@@ -22,4 +22,7 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# books-api
+
+# Book & Book Review
+
+Pretty standard book and book review API with [Lumen](https://lumen.laravel.com/docs/9.x).
